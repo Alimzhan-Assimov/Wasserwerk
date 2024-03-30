@@ -1,0 +1,74 @@
+@baseurl = http://127.0.0.1:8080
+##########################################
+
+### Get all zaehlerstands of a client
+GET {{baseurl}}/kunde/1/zaehlerstand
+
+##########################################
+### Get all Zaehler
+GET {{baseurl}}/zaehler
+
+### Get Zaehler with correct Id
+GET {{baseurl}}/zaehler/1
+
+### Get Zaehler with wrong Id (error flow)
+GET {{baseurl}}/zaehler/9
+
+##########################################
+
+### Create Zaehler 
+POST {{baseurl}}/zaehler
+Content-Type: application/json
+
+{
+    "isHauptzaehler" : true,
+    "id_einbauort": 3
+}
+
+### Create Zaehler - wrong datatype in id_einbauort
+
+POST {{baseurl}}/zaehler
+Content-Type: application/json
+
+{
+    "isHauptzaehler" : 1,
+    "id_einbauort": "nein"
+}
+
+##########################################
+
+### Delete Zaehler with correct Id
+DELETE {{baseurl}}/zaehler/3
+
+
+### Delete Zaehler with wrong Id (error flow)
+DELETE {{baseurl}}/zaehler/99999
+
+##########################################
+
+### Update Zaehler with correct Id
+PUT  {{baseurl}}/zaehler/2
+Content-Type: application/json
+
+{
+    "isHauptzaehler": 0,
+    "id_einbauort": 1
+}
+
+### Update Zaehler with wrong Id (error flow)
+PUT  {{baseurl}}/zaehler/99
+Content-Type: application/json
+
+{
+    "isHauptzaehler": 0,
+    "id_einbauort": 1
+}
+
+### Update Zaehler with wrong value (error flow)
+PUT  {{baseurl}}/zaehler/1
+Content-Type: application/json
+
+{
+    "isHauptzaehler": 0,
+    "id_einbauort": "wrong"
+}

@@ -18,4 +18,4 @@
 ## Time worked
 
 * 29.03 10:10am till 13pm
- 30.03 12:10am till 14pm
+* 30.03 12:10am till 14pm
